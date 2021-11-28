@@ -74,12 +74,8 @@ namespace Crackme_Console
                             {
                                 fatalerror("{Error:0} Illegal Program Detected! Please close " + processname);
                             }
+                            if (fullPath.ToLower().Contains(blacklist)) fatalerror("{Error:1} Illegal Program Detected! Please close " + processname);
                         }
-                    }
-
-                    foreach (var blacklist in list)
-                    {
-                        if (fullPath.ToLower().Contains(blacklist)) fatalerror("{Error:1} Illegal Program Detected! Please close " + processname);
                     }
                 }
                 catch { }
@@ -138,10 +134,6 @@ namespace Crackme_Console
                         {
                             if (filename.ToLower().Contains(blacklist)) fatalerror("{Error:2} Illegal Program Detected! Please close " + processname);
                         }
-                    }
-
-                    foreach (var blacklist in list)
-                    {
                         if (processname.ToLower().Contains(blacklist) || processpath.ToLower().Contains(blacklist)) fatalerror("{Error:3} Illegal Program Detected! Please close " + processname);
                     }
                 }
